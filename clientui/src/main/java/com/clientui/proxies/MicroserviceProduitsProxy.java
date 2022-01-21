@@ -14,13 +14,15 @@ import java.util.Optional;
 @FeignClient(name = "microservice-produits")
 public interface MicroserviceProduitsProxy {
 
-    @GetMapping(value = "/microservice-produits/Produits")
+    //@GetMapping(value = "/microservice-produits/Produits")
+    @GetMapping(value = "/Produits")
     List<ProductBean> listeDesProduits();
 
     /*
     * Notez ici la notation @PathVariable("id") qui est différente de celle qu'on utlise dans le contrôleur
     **/
-    @GetMapping( value = "/microservice-produits/Produits/{id}")
+    //@GetMapping( value = "/microservice-produits/Produits/{id}")
+    @GetMapping( value = "/Produits/{id}")
     ProductBean recupererUnProduit(@PathVariable("id") int id);
 
 
