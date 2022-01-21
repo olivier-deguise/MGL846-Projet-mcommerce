@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 @FeignClient(name = "microservice-commandes")
 public interface MicroserviceCommandeProxy {
 
-    @PostMapping(value = "/microservice-commandes/commandes")
+    //@PostMapping(value = "/microservice-commandes/commandes")
+    @PostMapping(value = "/commandes")
     CommandeBean ajouterCommande(@RequestBody CommandeBean commande);
 }

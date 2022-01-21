@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 @FeignClient(name = "microservice-paiement")
 public interface MicroservicePaiementProxy {
 
-    @PostMapping(value = "/microservice-paiement/paiement")
+    //@PostMapping(value = "/microservice-paiement/paiement")
+    @PostMapping(value = "/paiement")
     ResponseEntity<PaiementBean> payerUneCommande(@RequestBody PaiementBean paiement);
 
 }
