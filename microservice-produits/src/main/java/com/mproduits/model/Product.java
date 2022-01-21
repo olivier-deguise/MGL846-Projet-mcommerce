@@ -1,11 +1,20 @@
 package com.mproduits.model;
 
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
+@Data
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class Product {
 
     @Id
@@ -19,69 +28,5 @@ public class Product {
     private String image;
 
     private Double prix;
-
-
-    public Product() {
-    }
-
-    public Product(int id, String titre, String description, String image, Double prix) {
-        this.id = id;
-        this.titre = titre;
-        this.description = description;
-        this.image = image;
-        this.prix = prix;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getTitre() {
-        return titre;
-    }
-
-    public void setTitre(String titre) {
-        this.titre = titre;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public Double getPrix() {
-        return prix;
-    }
-
-    public void setPrix(Double prix) {
-        this.prix = prix;
-    }
-
-    @Override
-    public String toString() {
-        return "Product{" +
-                "id=" + id +
-                ", titre='" + titre + '\'' +
-                ", description='" + description + '\'' +
-                ", image='" + image + '\'' +
-                ", prix=" + prix +
-                '}';
-    }
-
 
 }
