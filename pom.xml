@@ -13,6 +13,7 @@
         <module>config-server</module>
         <module>eureka-server</module>
         <module>eureka-server</module>
+        <module>microservice-produits</module>
     </modules>
 
     <name>mcommerce</name>
