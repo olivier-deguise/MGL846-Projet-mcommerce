@@ -9,13 +9,13 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.mproduits</groupId>
-    <artifactId>microservice-produits</artifactId>
+
+    <artifactId>microservice-paiement</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>mproduits</name>
-    <description>Microservice de gestion des produits</description>
+    <name>mpaiement</name>
+    <description>Microservice pour simuler des paiements</description>
 
     <dependencies>
         <dependency>

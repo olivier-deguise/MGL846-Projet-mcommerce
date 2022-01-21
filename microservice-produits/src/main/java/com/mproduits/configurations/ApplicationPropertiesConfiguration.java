@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties("mes-configs")
 public class ApplicationPropertiesConfiguration {
 
-    private int limitDeProduits;
+    private int limitDeProduits=4;
 
     public int getLimitDeProduits() {
         return limitDeProduits;

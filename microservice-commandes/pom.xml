@@ -8,14 +8,12 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
-    <groupId>com.mproduits</groupId>
-    <artifactId>microservice-produits</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>mproduits</name>
-    <description>Microservice de gestion des produits</description>
+    <name>mcommandes</name>
+    <description>Microservices pour simuler des paiements</description>
+
+    <artifactId>microservice-commandes</artifactId>
 
     <dependencies>
         <dependency>
@@ -46,4 +44,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>

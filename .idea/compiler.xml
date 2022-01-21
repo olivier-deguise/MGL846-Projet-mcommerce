@@ -10,7 +10,9 @@
         <module name="microservice-produits" />
         <module name="config-server" />
         <module name="clientui" />
+        <module name="microservice-commandes" />
         <module name="eureka-server" />
+        <module name="microservice-paiement" />
       </profile>
     </annotationProcessing>
   </component>
