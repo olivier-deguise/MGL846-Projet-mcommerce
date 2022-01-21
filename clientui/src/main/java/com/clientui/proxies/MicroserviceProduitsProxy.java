@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import java.util.List;
 import java.util.Optional;
 
-@FeignClient(name = "zuul-server")
-@LoadBalancerClient(name = "microservice-produits")
+//@FeignClient(name = "zuul-server")
+//@LoadBalancerClient(name = "microservice-produits")
+@FeignClient(name = "microservice-produits")
 public interface MicroserviceProduitsProxy {
 
     @GetMapping(value = "/microservice-produits/Produits")

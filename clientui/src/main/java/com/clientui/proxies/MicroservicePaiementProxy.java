@@ -7,8 +7,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-@FeignClient(name = "zuul-server")
-@LoadBalancerClient(name = "microservice-paiement")
+//@FeignClient(name = "zuul-server")
+//@LoadBalancerClient(name = "microservice-paiement")
+@FeignClient(name = "microservice-paiement")
 public interface MicroservicePaiementProxy {
 
     @PostMapping(value = "/microservice-paiement/paiement")
