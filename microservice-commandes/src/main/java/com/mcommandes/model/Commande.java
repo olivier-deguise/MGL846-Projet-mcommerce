@@ -1,6 +1,5 @@
 package com.mcommandes.model;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,7 +8,7 @@ import lombok.ToString;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Data
@@ -24,10 +23,10 @@ public class Commande {
 
     private Integer productId;
 
-    private Date dateCommande;
+    private LocalDate dateCommande;
 
     private Integer quantite;
 
-    private Boolean commandePayee;
+    private Boolean commandePayee = Boolean.FALSE;
 
 }

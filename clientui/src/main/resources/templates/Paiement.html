@@ -4,7 +4,7 @@
     <title>Mcommerce</title>
 
     <link rel="stylesheet" type="text/css"
-          href="http://localhost:8080/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css"/>
+          th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css}"/>
 
 </head>
 <body>
@@ -26,9 +26,12 @@
 
             <!-- On passe l'id de la commande ET le montant de celle-ci afin que le contrôleur ait les informations nécessaires pour faire appel au microservice de paiement -->
             <p>
-                <a th:href="@{|/payer-commande/${commande.id}/${montant}|}" class="font-weight-bold">Payer Ma Commande</a>
+<!--                <a th:href="@{|/payer-commande/${commande.id}/${montant}|}" class="font-weight-bold">Payer Ma Commande</a>-->
+            <form method="POST" th:action="@{|/payer-commande/${commande.id}/${montant}|}">
+                <button type="submit" name="submit" value="value" class="link-button">Payer Ma Commande</button>
+            </form>
             </p>
-
+            <a th:href="@{/}" class="font-weight-bold">RETOUR À L'ACCUEIL</a>
 
 
         </div>
@@ -37,7 +40,7 @@
 </div>
 
 
-<script type="text/javascript" src="http://localhost:8080/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js"></script>
+<script type="text/javascript" th:src="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css}"></script>
 
 </body>
 </html>

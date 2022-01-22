@@ -1,10 +1,11 @@
 package com.mcommandes.web.controller;
 
-
 import com.mcommandes.dao.CommandesDao;
 import com.mcommandes.model.Commande;
 import com.mcommandes.web.exceptions.CommandeNotFoundException;
 import com.mcommandes.web.exceptions.ImpossibleAjouterCommandeException;
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
+@AllArgsConstructor
+@Slf4j
 public class CommandeController {
 
     @Autowired
@@ -23,7 +26,9 @@ public class CommandeController {
 
         Commande nouvelleCommande = commandesDao.save(commande);
 
-        if(nouvelleCommande == null) throw new ImpossibleAjouterCommandeException("Impossible d'ajouter cette commande");
+        if(nouvelleCommande == null){
+            throw new ImpossibleAjouterCommandeException("Impossible d'ajouter cette commande");
+        }
 
         return new ResponseEntity<Commande>(commande, HttpStatus.CREATED);
     }
@@ -33,7 +38,9 @@ public class CommandeController {
 
         Optional<Commande> commande = commandesDao.findById(id);
 
-        if(!commande.isPresent()) throw new CommandeNotFoundException("Cette commande n'existe pas");
+        if(!commande.isPresent()){
+            throw new CommandeNotFoundException("Cette commande n'existe pas");
+        }
 
         return commande;
     }

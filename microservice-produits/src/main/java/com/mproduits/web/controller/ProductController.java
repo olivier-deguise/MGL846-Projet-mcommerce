@@ -4,12 +4,11 @@ import com.mproduits.configurations.ApplicationPropertiesConfiguration;
 import com.mproduits.dao.ProductDao;
 import com.mproduits.model.Product;
 import com.mproduits.web.exceptions.ProductNotFoundException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.actuate.health.Health;
 import org.springframework.boot.actuate.health.HealthIndicator;
-import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,13 +17,12 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@AllArgsConstructor
+@Slf4j
 public class ProductController implements HealthIndicator {
 
     @Autowired
     ProductDao productDao;
-
-
-    Logger log = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     ApplicationPropertiesConfiguration appProperties;
@@ -46,10 +44,13 @@ public class ProductController implements HealthIndicator {
 
         List<Product> products = productDao.findAll();
 
-        if(products.isEmpty()) throw new ProductNotFoundException("Aucun produit n'est disponible à la vente");
+        if(products.isEmpty()){
+            throw new ProductNotFoundException("Aucun produit n'est disponible à la vente");
+        }
 
-        List<Product> listeLimitee = products.subList(0, appProperties.getLimitDeProduits());
-
+        //List<Product> listeLimitee = products.subList(0, appProperties.getLimitDeProduits());
+        //Correction de défaut, ajout de la fonction Math.min() pour éviter un java.lang.IndexOutOfBoundsException lorsque le DOA retourne moins de produits qu'indiquer par le appProperties
+        List<Product> listeLimitee = products.subList(0, Math.min(appProperties.getLimitDeProduits(), products.size()));
 
         log.info("Récupération de la liste des produits");
 
@@ -63,7 +64,9 @@ public class ProductController implements HealthIndicator {
 
         Optional<Product> product = productDao.findById(id);
 
-        if(!product.isPresent())  throw new ProductNotFoundException("Le produit correspondant à l'id " + id + " n'existe pas");
+        if(!product.isPresent()){
+            throw new ProductNotFoundException("Le produit correspondant à l'id " + id + " n'existe pas");
+        }
 
         return product;
     }
