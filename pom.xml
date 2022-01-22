@@ -9,12 +9,13 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>clientui</module>
-        <module>config-server</module>
         <module>eureka-server</module>
+        <module>config-server</module>
+        <module>clientui</module>
         <module>microservice-produits</module>
         <module>microservice-paiement</module>
         <module>microservice-commandes</module>
+        <module>springadmin</module>
     </modules>
 
     <name>mcommerce</name>

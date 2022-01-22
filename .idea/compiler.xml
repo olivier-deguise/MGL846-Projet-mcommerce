@@ -7,13 +7,17 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="microservice-produits" />
         <module name="config-server" />
-        <module name="clientui" />
         <module name="microservice-commandes" />
-        <module name="eureka-server" />
         <module name="microservice-paiement" />
+        <module name="microservice-produits" />
+        <module name="clientui" />
+        <module name="springadmin" />
+        <module name="eureka-server" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="zipkin" target="17" />
+    </bytecodeTargetLevel>
   </component>
 </project>
