@@ -11,6 +11,7 @@
         <module name="microservice-commandes" />
         <module name="microservice-paiement" />
         <module name="microservice-produits" />
+        <module name="api-gateway" />
         <module name="clientui" />
         <module name="springadmin" />
         <module name="eureka-server" />

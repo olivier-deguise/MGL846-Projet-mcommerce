@@ -4,7 +4,7 @@
     <title>Mcommerce</title>
 
     <link rel="stylesheet" type="text/css"
-          th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css}"/>
+          th:href="${#httpServletRequest.scheme}+'://'+${#httpServletRequest.serverName}+':'+${#httpServletRequest.serverPort}+@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css}"/>
 
 </head>
 <body>
@@ -24,7 +24,7 @@
             <p th:unless="${paiementOk}">
                 Le paiement n'a pas abouti
             </p>
-            <a th:href="@{/}" class="font-weight-bold">RETOUR À L'ACCUEIL</a>
+            <a th:href="@{/mcommerce-ui}" class="font-weight-bold">RETOUR À L'ACCUEIL</a>
 
 
         </div>
@@ -33,7 +33,7 @@
 </div>
 
 
-<script type="text/javascript" th:src="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css}"></script>
+<script type="text/javascript" th:src="${#httpServletRequest.scheme}+'://'+${#httpServletRequest.serverName}+':'+${#httpServletRequest.serverPort}+@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css}"></script>
 
 </body>
 </html>

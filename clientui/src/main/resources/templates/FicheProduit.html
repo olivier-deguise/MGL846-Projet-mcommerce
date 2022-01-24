@@ -4,7 +4,7 @@
     <title>Mcommerce</title>
 
     <link rel="stylesheet" type="text/css"
-          th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css}"/>
+          th:href="${#httpServletRequest.scheme}+'://'+${#httpServletRequest.serverName}+':'+${#httpServletRequest.serverPort}+@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css}"/>
 
 </head>
 <body>
@@ -25,10 +25,10 @@
 
             <p>
 <!--                <a th:href="@{|/commander-produit/${produit.id}/${produit.prix}||}" class="font-weight-bold">COMMANDER</a>-->
-            <form method="POST" th:action="@{|/commander-produit/${produit.id}/${produit.prix}||}">
+            <form method="POST" th:action="@{|/mcommerce-ui/commander-produit/${produit.id}/${produit.prix}||}">
                 <button type="submit" name="submit" value="value" class="link-button">COMMANDER</button>
             </form>
-            <a th:href="@{/}" class="font-weight-bold">RETOUR À L'ACCUEIL</a>
+            <a th:href="@{/mcommerce-ui}" class="font-weight-bold">RETOUR À L'ACCUEIL</a>
             </p>
 
         </div>
@@ -37,7 +37,7 @@
 </div>
 
 
-<script type="text/javascript" th:src="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css}"></script>
+<script type="text/javascript" th:src="${#httpServletRequest.scheme}+'://'+${#httpServletRequest.serverName}+':'+${#httpServletRequest.serverPort}+@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css}"></script>
 
 </body>
 </html>

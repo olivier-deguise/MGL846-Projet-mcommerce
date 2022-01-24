@@ -25,6 +25,7 @@ import java.util.concurrent.ThreadLocalRandom;
 @Slf4j
 @AllArgsConstructor
 @NoArgsConstructor
+@RequestMapping("mcommerce-ui")
 public class ClientController {
 
     @Autowired
@@ -42,9 +43,8 @@ public class ClientController {
     * Les produits sont récupérés grâce à ProduitsProxy
     * On fini par rentourner la page Accueil.html à laquelle on passe la liste d'objets "produits" récupérés.
     * */
-    @RequestMapping("/")
+    @RequestMapping
     public String accueil(Model model){
-
 
         log.info("Envoi requête vers microservice-produits");
 
@@ -61,7 +61,7 @@ public class ClientController {
     * Opération qui récupère les détails d'un produit
     * On passe l'objet "produit" récupéré et qui contient les détails en question à  FicheProduit.html
     * */
-    @RequestMapping("/details-produit/{id}")
+    @RequestMapping("details-produit/{id}")
     public String ficheProduit(@PathVariable int id,  Model model){
 
         ProductBean produit = ProduitsProxy.recupererUnProduit(id);
@@ -75,7 +75,7 @@ public class ClientController {
     * Étape (3) et (4)
     * Opération qui fait appel au microservice de commande pour placer une commande et récupérer les détails de la commande créée
     * */
-    @PostMapping(value = "/commander-produit/{idProduit}/{montant}")
+    @PostMapping(value = "commander-produit/{idProduit}/{montant}")
     public String passerCommande(@PathVariable int idProduit, @PathVariable Double montant, Model model){
 
         CommandeBean commande = new CommandeBean();
@@ -99,7 +99,7 @@ public class ClientController {
     * Étape (5)
     * Opération qui fait appel au microservice de paiement pour traiter un paiement
     * */
-    @PostMapping(value = "/payer-commande/{idCommande}/{montantCommande}")
+    @PostMapping(value = "payer-commande/{idCommande}/{montantCommande}")
     public String payerCommande(@PathVariable int idCommande, @PathVariable Double montantCommande, Model model){
 
         PaiementBean paiementAExcecuter = new PaiementBean();

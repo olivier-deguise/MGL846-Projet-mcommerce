@@ -11,6 +11,7 @@ import org.springframework.boot.actuate.health.Health;
 import org.springframework.boot.actuate.health.HealthIndicator;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -19,6 +20,7 @@ import java.util.Optional;
 @RestController
 @AllArgsConstructor
 @Slf4j
+@RequestMapping("produits")
 public class ProductController implements HealthIndicator {
 
     @Autowired
@@ -39,7 +41,7 @@ public class ProductController implements HealthIndicator {
     }
 
     // Affiche la liste de tous les produits disponibles
-    @GetMapping(value = "/Produits")
+    @GetMapping
     public List<Product> listeDesProduits(){
 
         List<Product> products = productDao.findAll();
@@ -59,7 +61,7 @@ public class ProductController implements HealthIndicator {
     }
 
     //Récuperer un produit par son id
-    @GetMapping( value = "/Produits/{id}")
+    @GetMapping( value = "{id}")
     public Optional<Product> recupererUnProduit(@PathVariable int id) {
 
         Optional<Product> product = productDao.findById(id);

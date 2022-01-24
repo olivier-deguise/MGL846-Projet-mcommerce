@@ -15,14 +15,14 @@ import java.util.Optional;
 public interface MicroserviceProduitsProxy {
 
     //@GetMapping(value = "/microservice-produits/Produits")
-    @GetMapping(value = "/Produits")
+    @GetMapping(value = "/produits")
     List<ProductBean> listeDesProduits();
 
     /*
     * Notez ici la notation @PathVariable("id") qui est différente de celle qu'on utlise dans le contrôleur
     **/
     //@GetMapping( value = "/microservice-produits/Produits/{id}")
-    @GetMapping( value = "/Produits/{id}")
+    @GetMapping( value = "/produits/{id}")
     ProductBean recupererUnProduit(@PathVariable("id") int id);
 
 

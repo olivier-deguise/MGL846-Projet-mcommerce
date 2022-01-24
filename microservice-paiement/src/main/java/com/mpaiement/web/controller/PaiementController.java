@@ -18,6 +18,7 @@ import java.util.Optional;
 @RestController
 @AllArgsConstructor
 @Slf4j
+@RequestMapping("paiement")
 public class PaiementController {
 
     @Autowired
@@ -29,7 +30,7 @@ public class PaiementController {
     /*
     * Opération pour enregistrer un paiement et notifier le microservice commandes pour mettre à jour le statut de la commande en question
     **/
-    @PostMapping(value = "/paiement")
+    @PostMapping
     public ResponseEntity<Paiement>  payerUneCommande(@RequestBody Paiement paiement){
 
 

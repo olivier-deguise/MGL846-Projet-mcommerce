@@ -12,13 +12,14 @@ Le diagramme ci-bas illustre bien les différentes interactions entre les micro-
 
 # Description des différents microservices
 
-- `eureka-server`: sert à trouver les autres microservices qui sont instantiés et qui peuvent être appelés.
-- `config-server`: conteint les configurations nécessaires permettant aux microservices de bien s'instantier.
-- `springadmin`: acquiert l'information des microservices accessibles à travers `eureka-server`
-- `mproduits`: service qui permet d'interagir avec les produits (voir diagramme ci-haut)
-- `mcommandes`: service qui permet d'interagir avec les commands (voir diagramme ci-haut)
-- `mpaiements`: service qui permet d'interagir avec les paiments (voir diagramme ci-haut)
-- `clientui`: service qui démarre le ui de l'application
+- `eureka-server`: sert à trouver les autres microservices qui sont instantiés et qui peuvent être appelés. Ce service est déployé sur le port 8761.
+- `config-server`: contient les configurations nécessaires permettant aux microservices de bien s'instantier. Ce service est déployé sur le port 9101.
+- `springadmin`: acquiert l'information des microservices accessibles à travers `eureka-server`. Ce service est déployé sur le port 9105.
+- `mproduits`: service qui permet d'interagir avec les produits (voir diagramme ci-haut). Ce service est déployé sur le port 9001.
+- `mcommandes`: service qui permet d'interagir avec les commands (voir diagramme ci-haut). Ce service est déployé sur le port 9002.
+- `mpaiements`: service qui permet d'interagir avec les paiments (voir diagramme ci-haut). Ce service est déployé sur le port 9003.
+- `clientui`: service qui démarre le ui de l'application. Ce service est déployé sur le port 8080.
+- `api-gateway`: passerelle afin d'avoir un point d'entrée unique. Ce service est déployé sur le port 80.
 
 # Description des composantes implicites
 
@@ -38,7 +39,8 @@ Pour démarrer il faut télécharger un IDE permettant de travailler avec les mi
 | 3         | Oui        | microservice-commandes |
 | 3         | Oui        | microservice-paiements |
 | 4         | Oui        | clientui               |
-| 5         | Non        | springadmin            |
-| 5         | Non        | zipkin                 |
+| 5         | Oui        | api-gateway            |
+| 6         | Non        | springadmin            |
+| 6         | Non        | zipkin                 |
 
-Vous pouvez ensuite aller sur http://localhost:8080/ pour visualiser votre application.
+Vous pouvez ensuite aller sur http://localhost/mcommerce-ui pour visualiser votre application.

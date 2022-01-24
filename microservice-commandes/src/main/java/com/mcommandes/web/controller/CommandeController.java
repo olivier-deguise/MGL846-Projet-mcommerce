@@ -16,12 +16,13 @@ import java.util.Optional;
 @RestController
 @AllArgsConstructor
 @Slf4j
+@RequestMapping("commandes")
 public class CommandeController {
 
     @Autowired
     CommandesDao commandesDao;
 
-    @PostMapping (value = "/commandes")
+    @PostMapping
     public ResponseEntity<Commande> ajouterCommande(@RequestBody Commande commande){
 
         Commande nouvelleCommande = commandesDao.save(commande);
@@ -33,7 +34,7 @@ public class CommandeController {
         return new ResponseEntity<Commande>(commande, HttpStatus.CREATED);
     }
 
-    @GetMapping(value = "/commandes/{id}")
+    @GetMapping(value = "{id}")
     public Optional<Commande> recupererUneCommande(@PathVariable int id){
 
         Optional<Commande> commande = commandesDao.findById(id);
@@ -50,7 +51,7 @@ public class CommandeController {
     * save() mettra à jours uniquement les champs renseignés dans l'objet commande reçu. Ainsi dans ce cas, comme le champs date dans "commande" n'est
     * pas renseigné, la date précédemment enregistrée restera en place
     **/
-    @PutMapping(value = "/commandes")
+    @PutMapping
     public void updateCommande(@RequestBody Commande commande) {
 
         commandesDao.save(commande);

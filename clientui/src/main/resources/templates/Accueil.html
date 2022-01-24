@@ -3,7 +3,7 @@
 <head>
     <title>Mcommerce</title>
 
-    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css}" />
+    <link rel="stylesheet" type="text/css" th:href="${#httpServletRequest.scheme}+'://'+${#httpServletRequest.serverName}+':'+${#httpServletRequest.serverPort}+@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css}" />
 
 </head>
 <body>
@@ -19,7 +19,7 @@
         Boucle sur tous les objets de type "produit" de la liste et affichage des informations produit.
         -->
         <div th:each="produit : ${produits}" class="col-md-4 my-1">
-            <a th:href="@{|/details-produit/${produit.id}|}" >
+            <a th:href="@{|/mcommerce-ui/details-produit/${produit.id}|}" >
                 <img th:src="${produit.image}"  class="card-img-top" />
                 <p th:text= "${produit.titre}"></p>
             </a>
@@ -29,7 +29,7 @@
 </div>
 
 
-<script type="text/javascript" th:src="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css}"></script>
+<script type="text/javascript" th:src="${#httpServletRequest.scheme}+'://'+${#httpServletRequest.serverName}+':'+${#httpServletRequest.serverPort}+@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css}"></script>
 
 </body>
 </html>
