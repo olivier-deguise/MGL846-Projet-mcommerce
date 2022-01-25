@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 @NoArgsConstructor
 public class ApplicationPropertiesConfiguration {
 
-    private int limitDeProduits=8;
+    private int limitDeProduits=5;
 
     public int getLimitDeProduits() {
         return limitDeProduits;
