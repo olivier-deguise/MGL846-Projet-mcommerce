@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 @ConfigurationProperties("mes-configs")
-@AllArgsConstructor
 @NoArgsConstructor
 public class ApplicationPropertiesConfiguration {
 

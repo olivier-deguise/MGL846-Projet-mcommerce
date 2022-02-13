@@ -1,14 +1,12 @@
 package com.clientui.beans;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
 @Data
+@Builder
 public class PaiementBean {
 
     private int id;

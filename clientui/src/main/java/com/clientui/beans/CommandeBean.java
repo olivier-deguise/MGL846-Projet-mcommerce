@@ -1,9 +1,6 @@
 package com.clientui.beans;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import java.time.LocalDate;
 
@@ -11,6 +8,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @ToString
 @Data
+@Builder
 public class CommandeBean {
 
     private int id;

@@ -167,5 +167,28 @@ public class ProductControllerTest {
         assertThat(returnedHealth).isEqualTo(up);
     }
 
+    @Test
+    void toStringContainsProductValues(){
+        //given
+        int id = 55;
+        Double prix = 10.00;
+        String description = "desc1";
+        String image = "img1";
+        String titre = "titre1";
+
+        Product product = new Product();
+        product.setId(id);
+        product.setPrix(prix);
+        product.setDescription(description);
+        product.setImage(image);
+        product.setTitre(titre);
+
+        //when
+        String productString = product.toString();
+
+        //then
+        assertThat(productString).contains(String.valueOf(id), String.valueOf(prix), description, image, titre);
+    }
+
 
 }
