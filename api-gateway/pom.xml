@@ -34,6 +34,11 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <jmxPort>9214</jmxPort>
+                    <wait>1000</wait>
+                    <maxAttempts>180</maxAttempts>
+                </configuration>
             </plugin>
         </plugins>
     </build>
