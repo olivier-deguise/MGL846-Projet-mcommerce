@@ -60,6 +60,7 @@
                     <maxAttempts>180</maxAttempts>
                 </configuration>
             </plugin>
+
         </plugins>
     </build>
 </project>

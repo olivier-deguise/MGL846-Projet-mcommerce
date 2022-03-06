@@ -6,6 +6,7 @@ import com.mproduits.dao.ProductDao;
 import com.mproduits.model.Product;
 import com.mproduits.web.controller.ProductController;
 import com.mproduits.web.exceptions.ProductNotFoundException;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.actuate.health.Health;
@@ -16,6 +17,7 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -158,5 +160,26 @@ public class MicroserviceProduitsIT {
 
         //then
         assertThat(currentHealth).isEqualTo(down);
+    }
+
+    @Test
+    void testProduitToString(){
+        //given
+        Product produit = new Product();
+        produit.setId(1);
+        produit.setTitre("titre1");
+        produit.setPrix(10.0);
+        produit.setImage("img1");
+        produit.setDescription("desc1");
+
+        //when
+        String prodStr = produit.toString();
+
+        //then
+        assertThat(prodStr).contains("id=" + produit.getId());
+        assertThat(prodStr).contains("titre=" + produit.getTitre());
+        assertThat(prodStr).contains("prix=" + produit.getPrix());
+        assertThat(prodStr).contains("image=" + produit.getImage());
+        assertThat(prodStr).contains("description=" + produit.getDescription());
     }
 }

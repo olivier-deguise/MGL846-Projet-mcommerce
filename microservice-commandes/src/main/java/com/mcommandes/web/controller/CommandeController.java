@@ -25,7 +25,12 @@ public class CommandeController {
     @PostMapping
     public ResponseEntity<Commande> ajouterCommande(@RequestBody Commande commande){
 
-        Commande nouvelleCommande = commandesDao.save(commande);
+        Commande nouvelleCommande;
+        try{
+            nouvelleCommande = commandesDao.save(commande);
+        }catch(Exception e){
+            nouvelleCommande =  null;
+        }
 
         if(nouvelleCommande == null){
             throw new ImpossibleAjouterCommandeException("Impossible d'ajouter cette commande");
