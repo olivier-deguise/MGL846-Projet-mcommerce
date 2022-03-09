@@ -4,7 +4,9 @@ import com.mcommandes.dao.CommandesDao;
 import com.mcommandes.model.Commande;
 import com.mcommandes.web.exceptions.CommandeNotFoundException;
 import com.mcommandes.web.exceptions.ImpossibleAjouterCommandeException;
+import jdk.jfr.Category;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -21,6 +23,7 @@ import static org.mockito.BDDMockito.given;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+@Tag("UnitTests")
 @ExtendWith(MockitoExtension.class)
 public class CommandeControllerTest {
     @Mock private CommandesDao commandesDao;

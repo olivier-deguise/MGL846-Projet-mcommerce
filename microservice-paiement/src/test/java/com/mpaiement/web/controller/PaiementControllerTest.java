@@ -12,6 +12,7 @@ import com.mpaiement.proxies.MicroserviceCommandeProxy;
 import com.mpaiement.web.controller.PaiementController;
 import com.mpaiement.web.exceptions.PaiementExistantException;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -22,6 +23,7 @@ import org.springframework.http.ResponseEntity;
 import java.time.LocalDate;
 import java.util.Optional;
 
+@Tag("UnitTests")
 @ExtendWith(MockitoExtension.class)
 public class PaiementControllerTest {
 

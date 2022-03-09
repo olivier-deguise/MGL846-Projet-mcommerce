@@ -44,3 +44,13 @@ Pour démarrer il faut télécharger un IDE permettant de travailler avec les mi
 | 6         | Non        | zipkin                 |
 
 Vous pouvez ensuite aller sur http://localhost/mcommerce-ui pour visualiser votre application.
+
+# Rouler les tests avec de la couverture
+Les tests unitaires ont des Tags("UnitTests"). Pour démarrer ces tests avec de la couverture il faut configurer leur exécution avec:
+![](readme-img/edit-configurations.png)
+
+Ensuite vous pouvez rouler la configuration `UnitTests` avec couverture pour voir les résultats.
+
+# Rouler les tests d'acceptancion
+- Avoir d'installé Docker Desktop
+- Initialiser la variable `MAVEN_HOME` avec le root de Maven de votre OS
