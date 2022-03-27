@@ -10,6 +10,7 @@ import com.mproduits.dao.ProductDao;
 import com.mproduits.model.Product;
 import com.mproduits.web.exceptions.ProductNotFoundException;
 
+import org.junit.jupiter.api.Tag;
 import org.springframework.boot.actuate.health.Health;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -22,6 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Tag("UnitTests")
 @ExtendWith(MockitoExtension.class)
 public class ProductControllerTest {
     @Mock private ProductDao productDao;
