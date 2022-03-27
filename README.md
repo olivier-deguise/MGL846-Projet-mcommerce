@@ -51,6 +51,11 @@ Les tests unitaires ont des Tags("UnitTests"). Pour démarrer ces tests avec de 
 
 Ensuite vous pouvez rouler la configuration `UnitTests` avec couverture pour voir les résultats.
 
-# Rouler les tests d'intégration et d'acceptation
+# Rouler les tests d'intégration
+- Initialiser la variable `MAVEN_HOME` avec le root de Maven de votre OS
+- Avoir démarré `eureka-server` et `config-server` dans l'ordre
+- Rouler, une classe à la fois, les tests d'intégration (le test démarre le service en question)
+
+# Rouler les tests d'acceptation
 - Avoir d'installé Docker Desktop
 - Initialiser la variable `MAVEN_HOME` avec le root de Maven de votre OS
