@@ -66,6 +66,19 @@ public class CommandeControllerTest {
     }
 
     @Test
+    void ajouterCommandeInvalidWithExceptionInSaveDao(){
+        //given
+        given(commandesDao.save(null)).willThrow(new IllegalArgumentException());
+
+        //when
+
+        //then
+        assertThatThrownBy(() -> underTest.ajouterCommande(null))
+                .isInstanceOf(ImpossibleAjouterCommandeException.class)
+                .hasMessageContaining("Impossible d'ajouter cette commande");
+    }
+
+    @Test
     void recupererUneCommandeValid(){
         //given
 
