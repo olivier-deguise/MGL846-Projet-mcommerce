@@ -51,6 +51,6 @@ Les tests unitaires ont des Tags("UnitTests"). Pour démarrer ces tests avec de 
 
 Ensuite vous pouvez rouler la configuration `UnitTests` avec couverture pour voir les résultats.
 
-# Rouler les tests d'acceptancion
+# Rouler les tests d'intégration et d'acceptation
 - Avoir d'installé Docker Desktop
 - Initialiser la variable `MAVEN_HOME` avec le root de Maven de votre OS
