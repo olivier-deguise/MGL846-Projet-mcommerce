@@ -88,4 +88,36 @@ public class PaiementControllerTest {
                 .hasMessageContaining("Cette commande est déjà payée");
     }
 
+    @Test
+    void payerUneCommandeNotPaidWithNoArgsConstr(){
+        //given
+        Paiement paiement = new Paiement();
+        paiement.setId(1);
+        paiement.setIdCommande(1);
+        paiement.setMontant(10.00);
+        paiement.setNumeroCarte(Long.valueOf("1234567891234567"));
+
+        CommandeBean commande = new CommandeBean();
+        commande.setId(1);
+        commande.setDateCommande(LocalDate.now());
+        commande.setQuantite(1);
+        commande.setProductId(1);
+        commande.setCommandePayee(Boolean.FALSE);
+
+        System.out.println("Commande: Id=" + commande.getId() + ", dateCommande=" + commande.getDateCommande() + ", quantité="+ commande.getQuantite() + ", productId=" + commande.getProductId() + ", commandePayee=" + commande.getCommandePayee());
+        System.out.println("Paiement: Id=" + paiement.getId() + ", idCommande=" + paiement.getIdCommande() + ", montant=" + paiement.getMontant() + ", numeroCarte=" + paiement.getNumeroCarte());
+
+        Optional<CommandeBean> commandeOpt = Optional.of(commande);
+
+        given(paiementDao.findByidCommande(paiement.getIdCommande())).willReturn(null);
+        given(paiementDao.save(paiement)).willReturn(paiement);
+        given(microserviceCommandeProxy.recupererUneCommande(paiement.getIdCommande())).willReturn(commandeOpt);
+
+        //when
+        ResponseEntity<Paiement> response = underTest.payerUneCommande(paiement);
+
+        //then
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.CREATED);
+        assertThat(response.getBody()).isEqualTo(paiement);
+    }
 }

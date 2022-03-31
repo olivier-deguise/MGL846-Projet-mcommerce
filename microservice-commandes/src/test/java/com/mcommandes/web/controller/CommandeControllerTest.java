@@ -134,4 +134,25 @@ public class CommandeControllerTest {
         verify(commandesDao).save(commande);
     }
 
+    @Test
+    void updateCommandeWithNoArgsConstr(){
+        //given
+        Commande commande = new Commande();
+        commande.setId(1);
+        commande.setDateCommande(LocalDate.now());
+        commande.setQuantite(1);
+        commande.setProductId(1);
+        commande.setCommandePayee(Boolean.FALSE);
+
+        System.out.println("Commande: Id=" + commande.getId() + ", dateCommande=" + commande.getDateCommande() + ", quantité="+ commande.getQuantite() + ", productId=" + commande.getProductId() + ", commandePayee=" + commande.getCommandePayee());
+
+        given(commandesDao.save(commande)).willReturn(commande);
+
+        //when
+        underTest.updateCommande(commande);
+
+        //then
+        verify(commandesDao).save(commande);
+    }
+
 }

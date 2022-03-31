@@ -39,7 +39,12 @@ public class ProductControllerTest {
     @Test
     void listeDesProduitsCanGetProducts() {
         //given
-        Product product = new Product();
+        Product product = Product.builder()
+                .id(1)
+                .prix(10.00)
+                .description("desc")
+                .image("img")
+                .build();
         List<Product> list = new ArrayList<Product>();
         list.add(product);
         given(productDao.findAll()).willReturn(list);

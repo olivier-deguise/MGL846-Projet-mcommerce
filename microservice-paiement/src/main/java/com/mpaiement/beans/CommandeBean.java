@@ -7,7 +7,6 @@ import java.time.LocalDate;
 @Data
 @AllArgsConstructor
 @Builder
-@ToString
 @NoArgsConstructor
 public class CommandeBean {
 
