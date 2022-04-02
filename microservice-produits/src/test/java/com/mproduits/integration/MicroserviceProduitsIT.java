@@ -6,8 +6,10 @@ import com.mproduits.dao.ProductDao;
 import com.mproduits.model.Product;
 import com.mproduits.web.controller.ProductController;
 import com.mproduits.web.exceptions.ProductNotFoundException;
+import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.actuate.health.Health;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -35,6 +37,7 @@ import static org.hamcrest.Matchers.containsString;
         webEnvironment = RANDOM_PORT)
 @TestPropertySource(locations = "classpath:application-it.properties")
 @AutoConfigureMockMvc
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class MicroserviceProduitsIT {
 
     @Autowired
@@ -50,6 +53,7 @@ public class MicroserviceProduitsIT {
     ProductController productControllerUnderTest;
 
     @Test
+    @Order(1)
     public void listeDesProduitsContainsAllProducts() throws Exception{
         //given
         Product product1 = Product.builder().id(8)
@@ -81,6 +85,7 @@ public class MicroserviceProduitsIT {
     }
 
     @Test
+    @Order(3)
     public void listeDesProduitsContainsNoProduct() throws Exception{
         //given
         productDao.deleteAllInBatch();
@@ -95,6 +100,7 @@ public class MicroserviceProduitsIT {
     }
 
     @Test
+    @Order(2)
     public void recupererUnProduitExistant() throws Exception{
         //given
         Product product1 = Product.builder().id(8)
