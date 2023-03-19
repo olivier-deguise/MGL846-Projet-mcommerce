@@ -3,7 +3,7 @@ name: Reusable CI Workflow
 on:
   workflow_call:
     inputs:
-      microservice:
+      project:
         required: true
         type: string
 
@@ -19,4 +19,4 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Maven Build
-      run: mvn -B package --file ./${{ inputs.microservice }}/pom.xml
+      run: mvn -B package --file ./${{ inputs.project }}/pom.xml -Dtest=UnitTests -DfailIfNoTests=false

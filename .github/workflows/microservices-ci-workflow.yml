@@ -1,4 +1,4 @@
-name: Microservice CI Workflow
+name: Main CI Workflow
 
 on:
   push:
@@ -10,4 +10,34 @@ jobs:
   build_eureka_server:
     uses: ./.github/workflows/reusable-ci-workflow.yml
     with:
-      microservice: eureka-server
+      project: eureka-server
+
+  build_config_server:
+    uses: ./.github/workflows/reusable-ci-workflow.yml
+    with:
+      project: config-server
+
+  build_microservice_produits:
+    uses: ./.github/workflows/reusable-ci-workflow.yml
+    with:
+      project: microservice-produits
+
+  build_microservice_commandes:
+    uses: ./.github/workflows/reusable-ci-workflow.yml
+    with:
+      project: microservice-commandes
+
+  build_microservice_paiements:
+    uses: ./.github/workflows/reusable-ci-workflow.yml
+    with:
+      project: microservice-paiements
+
+  build_client_ui:
+    uses: ./.github/workflows/reusable-ci-workflow.yml
+    with:
+      project: clientui
+
+  build_api_gateway:
+    uses: ./.github/workflows/reusable-ci-workflow.yml
+    with:
+      project: api-gateway
