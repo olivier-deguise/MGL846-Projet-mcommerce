@@ -1,8 +1,5 @@
 name: Main CI Workflow
 
-permissions:
-  packages: write
-
 on:
   push:
     branches: [ "master" ]
