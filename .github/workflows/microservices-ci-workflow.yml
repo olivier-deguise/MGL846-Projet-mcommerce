@@ -1,0 +1,13 @@
+name: Microservice CI Workflow
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build_eureka_server:
+    uses: ./.github/workflows/reusable-ci-workflow.yml
+    with:
+      microservice: eureka-server
