@@ -27,10 +27,10 @@ jobs:
     with:
       project: microservice-commandes
 
-  build_microservice_paiements:
+  build_microservice_paiement:
     uses: ./.github/workflows/reusable-ci-workflow.yml
     with:
-      project: microservice-paiements
+      project: microservice-paiement
 
   build_client_ui:
     uses: ./.github/workflows/reusable-ci-workflow.yml
