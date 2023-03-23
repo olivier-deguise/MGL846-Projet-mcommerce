@@ -50,9 +50,9 @@ public class ProductController implements HealthIndicator {
             throw new ProductNotFoundException("Aucun produit n'est disponible à la vente");
         }
 
-        List<Product> listeLimitee = products.subList(0, appProperties.getLimitDeProduits());
+//        List<Product> listeLimitee = products.subList(0, appProperties.getLimitDeProduits());
         //Correction de défaut, ajout de la fonction Math.min() pour éviter un java.lang.IndexOutOfBoundsException lorsque le DOA retourne moins de produits qu'indiquer par le appProperties
-        //List<Product> listeLimitee = products.subList(0, Math.min(appProperties.getLimitDeProduits(), products.size()));
+        List<Product> listeLimitee = products.subList(0, Math.min(appProperties.getLimitDeProduits(), products.size()));
 
         log.info("Récupération de la liste des produits");
 
